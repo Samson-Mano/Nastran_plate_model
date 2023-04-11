@@ -1,3 +1,5 @@
+# Status: In Progress
+
 # Nastran Input Generator for Stiffened Panels
 
 Description:
