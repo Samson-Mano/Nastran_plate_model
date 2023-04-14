@@ -104,7 +104,23 @@ namespace Nastran_plate_model
             bc_values.Add(comboBox_side3_bc.SelectedIndex);
             bc_values.Add(comboBox_side4_bc.SelectedIndex);
 
-            mesh_data.create_mesh(length_a, breadth_b, stiff_spacing, mesh_size,beam_offset,bc_values);
+            // Adjust the Offset value depending on the stiffener type
+            if(comboBox_stiffener.SelectedItem.ToString().StartsWith("L") == true)
+            {
+                // L Stiffener (do nothing)
+            }
+            else if(comboBox_stiffener.SelectedItem.ToString().StartsWith("T") == true)
+            {
+                // T stiffener
+                beam_offset = -1*beam_offset;
+            }
+            else if (comboBox_stiffener.SelectedItem.ToString().StartsWith("F") == true)
+            {
+                // Flat bar
+                beam_offset = beam_offset * 0.5d;
+            }
+
+                mesh_data.create_mesh(length_a, breadth_b, stiff_spacing, mesh_size,beam_offset,bc_values);
             mesh_data.set_other_input_str(thickness_output,stiffener_output,material_output);
 
             // MessageBox.Show(comboBox_side1_bc.SelectedIndex.ToString());

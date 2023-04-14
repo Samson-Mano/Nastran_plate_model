@@ -99,7 +99,7 @@
             // 
             this.textBox_thickness.Location = new System.Drawing.Point(124, 86);
             this.textBox_thickness.Name = "textBox_thickness";
-            this.textBox_thickness.Size = new System.Drawing.Size(68, 27);
+            this.textBox_thickness.Size = new System.Drawing.Size(68, 23);
             this.textBox_thickness.TabIndex = 5;
             this.textBox_thickness.Text = "8";
             // 
@@ -108,7 +108,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 89);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(142, 20);
+            this.label12.Size = new System.Drawing.Size(112, 15);
             this.label12.TabIndex = 4;
             this.label12.Text = "Thickness, t (mm):";
             // 
@@ -116,7 +116,7 @@
             // 
             this.textBox_breadth.Location = new System.Drawing.Point(124, 57);
             this.textBox_breadth.Name = "textBox_breadth";
-            this.textBox_breadth.Size = new System.Drawing.Size(68, 27);
+            this.textBox_breadth.Size = new System.Drawing.Size(68, 23);
             this.textBox_breadth.TabIndex = 3;
             this.textBox_breadth.Text = "2800";
             // 
@@ -125,7 +125,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(17, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 20);
+            this.label2.Size = new System.Drawing.Size(101, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Breadth, b (mm):";
             // 
@@ -133,7 +133,7 @@
             // 
             this.textBox_length.Location = new System.Drawing.Point(124, 28);
             this.textBox_length.Name = "textBox_length";
-            this.textBox_length.Size = new System.Drawing.Size(68, 27);
+            this.textBox_length.Size = new System.Drawing.Size(68, 23);
             this.textBox_length.TabIndex = 1;
             this.textBox_length.Text = "2400";
             // 
@@ -142,7 +142,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.Size = new System.Drawing.Size(94, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Length, a (mm):";
             // 
@@ -163,7 +163,7 @@
             // 
             this.textBox_stiffspacing.Location = new System.Drawing.Point(126, 56);
             this.textBox_stiffspacing.Name = "textBox_stiffspacing";
-            this.textBox_stiffspacing.Size = new System.Drawing.Size(68, 27);
+            this.textBox_stiffspacing.Size = new System.Drawing.Size(68, 23);
             this.textBox_stiffspacing.TabIndex = 3;
             this.textBox_stiffspacing.Text = "800";
             // 
@@ -172,7 +172,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(21, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(126, 20);
+            this.label4.Size = new System.Drawing.Size(99, 15);
             this.label4.TabIndex = 2;
             this.label4.Text = "Spacing, s (mm):";
             // 
@@ -181,7 +181,7 @@
             this.comboBox_stiffener.FormattingEnabled = true;
             this.comboBox_stiffener.Location = new System.Drawing.Point(126, 27);
             this.comboBox_stiffener.Name = "comboBox_stiffener";
-            this.comboBox_stiffener.Size = new System.Drawing.Size(116, 27);
+            this.comboBox_stiffener.Size = new System.Drawing.Size(116, 23);
             this.comboBox_stiffener.TabIndex = 1;
             this.comboBox_stiffener.Text = "L100x75x7";
             // 
@@ -190,7 +190,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(30, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 20);
+            this.label3.Size = new System.Drawing.Size(90, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "Stiffener Beam:";
             // 
@@ -211,7 +211,7 @@
             // 
             this.textBox_meshsize.Location = new System.Drawing.Point(125, 48);
             this.textBox_meshsize.Name = "textBox_meshsize";
-            this.textBox_meshsize.Size = new System.Drawing.Size(68, 27);
+            this.textBox_meshsize.Size = new System.Drawing.Size(68, 23);
             this.textBox_meshsize.TabIndex = 3;
             this.textBox_meshsize.Text = "100";
             // 
@@ -220,7 +220,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(19, 51);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(127, 20);
+            this.label13.Size = new System.Drawing.Size(100, 15);
             this.label13.TabIndex = 2;
             this.label13.Text = "Mesh size (mm):";
             // 
@@ -229,7 +229,7 @@
             this.comboBox_material.FormattingEnabled = true;
             this.comboBox_material.Location = new System.Drawing.Point(124, 19);
             this.comboBox_material.Name = "comboBox_material";
-            this.comboBox_material.Size = new System.Drawing.Size(148, 27);
+            this.comboBox_material.Size = new System.Drawing.Size(148, 23);
             this.comboBox_material.TabIndex = 1;
             // 
             // label5
@@ -237,7 +237,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(35, 22);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 20);
+            this.label5.Size = new System.Drawing.Size(84, 15);
             this.label5.TabIndex = 0;
             this.label5.Text = "Material Data:";
             // 
@@ -263,7 +263,7 @@
             this.comboBox_side4_bc.FormattingEnabled = true;
             this.comboBox_side4_bc.Location = new System.Drawing.Point(175, 57);
             this.comboBox_side4_bc.Name = "comboBox_side4_bc";
-            this.comboBox_side4_bc.Size = new System.Drawing.Size(97, 27);
+            this.comboBox_side4_bc.Size = new System.Drawing.Size(97, 23);
             this.comboBox_side4_bc.TabIndex = 7;
             // 
             // label9
@@ -271,7 +271,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(155, 60);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(18, 20);
+            this.label9.Size = new System.Drawing.Size(14, 15);
             this.label9.TabIndex = 6;
             this.label9.Text = "4";
             // 
@@ -280,7 +280,7 @@
             this.comboBox_side3_bc.FormattingEnabled = true;
             this.comboBox_side3_bc.Location = new System.Drawing.Point(98, 28);
             this.comboBox_side3_bc.Name = "comboBox_side3_bc";
-            this.comboBox_side3_bc.Size = new System.Drawing.Size(86, 27);
+            this.comboBox_side3_bc.Size = new System.Drawing.Size(86, 23);
             this.comboBox_side3_bc.TabIndex = 5;
             // 
             // label8
@@ -288,7 +288,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(78, 31);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(18, 20);
+            this.label8.Size = new System.Drawing.Size(14, 15);
             this.label8.TabIndex = 4;
             this.label8.Text = "3";
             // 
@@ -297,7 +297,7 @@
             this.comboBox_side2_bc.FormattingEnabled = true;
             this.comboBox_side2_bc.Location = new System.Drawing.Point(28, 57);
             this.comboBox_side2_bc.Name = "comboBox_side2_bc";
-            this.comboBox_side2_bc.Size = new System.Drawing.Size(86, 27);
+            this.comboBox_side2_bc.Size = new System.Drawing.Size(86, 23);
             this.comboBox_side2_bc.TabIndex = 3;
             // 
             // label7
@@ -305,7 +305,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(8, 60);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(18, 20);
+            this.label7.Size = new System.Drawing.Size(14, 15);
             this.label7.TabIndex = 2;
             this.label7.Text = "2";
             // 
@@ -314,7 +314,7 @@
             this.comboBox_side1_bc.FormattingEnabled = true;
             this.comboBox_side1_bc.Location = new System.Drawing.Point(98, 86);
             this.comboBox_side1_bc.Name = "comboBox_side1_bc";
-            this.comboBox_side1_bc.Size = new System.Drawing.Size(86, 27);
+            this.comboBox_side1_bc.Size = new System.Drawing.Size(86, 23);
             this.comboBox_side1_bc.TabIndex = 1;
             // 
             // label6
@@ -322,7 +322,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(78, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(18, 20);
+            this.label6.Size = new System.Drawing.Size(14, 15);
             this.label6.TabIndex = 0;
             this.label6.Text = "1";
             // 
@@ -341,10 +341,11 @@
             // 
             // comboBox_addedmass
             // 
+            this.comboBox_addedmass.Enabled = false;
             this.comboBox_addedmass.FormattingEnabled = true;
             this.comboBox_addedmass.Location = new System.Drawing.Point(175, 51);
             this.comboBox_addedmass.Name = "comboBox_addedmass";
-            this.comboBox_addedmass.Size = new System.Drawing.Size(97, 27);
+            this.comboBox_addedmass.Size = new System.Drawing.Size(97, 23);
             this.comboBox_addedmass.TabIndex = 3;
             // 
             // label11
@@ -352,7 +353,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(97, 54);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 20);
+            this.label11.Size = new System.Drawing.Size(77, 15);
             this.label11.TabIndex = 2;
             this.label11.Text = "Added Mass:";
             // 
@@ -360,16 +361,16 @@
             // 
             this.textBox_nmass.Location = new System.Drawing.Point(175, 23);
             this.textBox_nmass.Name = "textBox_nmass";
-            this.textBox_nmass.Size = new System.Drawing.Size(68, 27);
+            this.textBox_nmass.Size = new System.Drawing.Size(68, 23);
             this.textBox_nmass.TabIndex = 1;
             this.textBox_nmass.Text = "0";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 26);
+            this.label10.Location = new System.Drawing.Point(1, 26);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(225, 20);
+            this.label10.Size = new System.Drawing.Size(173, 15);
             this.label10.TabIndex = 0;
             this.label10.Text = "Non structural mass (Kg/m2):";
             // 
@@ -395,9 +396,9 @@
             // 
             // main_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 613);
+            this.ClientSize = new System.Drawing.Size(584, 621);
             this.Controls.Add(this.button_export);
             this.Controls.Add(this.button_create);
             this.Controls.Add(this.groupBox5);
