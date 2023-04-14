@@ -1,10 +1,11 @@
-# Status: In Progress
-
 # Nastran Input Generator for Stiffened Panels
 
 Description:
 
 The Nastran Input Generator for Stiffened Panels is a C# application designed to generate input files for the Nastran finite element analysis (FEA) software specifically tailored for stiffened panel structures. The application provides a user-friendly interface to define the geometric and material properties of the stiffened panel and automatically generates Nastran input files that can be used for structural analysis.
+
+![Nastran stiffened Panels](/Images/Plate_nat_freq.png)
+
 
 Features:
 
@@ -24,3 +25,11 @@ Benefits:
 - Enhances productivity and efficiency in generating Nastran input files for stiffened panel structures, making it suitable for engineering and aerospace applications.
 
 Overall, the Nastran Input Generator for Stiffened Panels is a powerful C# application that simplifies the process of creating Nastran input files for stiffened panel structures, saving time and effort in the analysis and design of these structures.
+
+Example after importing the model to Nastran preprocessors
+
+![Example 1](/Images/Plate_nat_freq_example_1.png)
+
+![Example 2](/Images/Plate_nat_freq_example_2.png)
+
+![Example 3](/Images/Plate_nat_freq_example_3.png)
