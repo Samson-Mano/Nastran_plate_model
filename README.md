@@ -33,3 +33,5 @@ Example after importing the model to Nastran preprocessors
 ![Example 2](/Images/Plate_nat_freq_example_2.png)
 
 ![Example 3](/Images/Plate_nat_freq_example_3.png)
+
+___________________________________________________ END _____________________________________________________________
