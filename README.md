@@ -34,4 +34,39 @@ Example after importing the model to Nastran preprocessors
 
 ![Example 3](/Images/Plate_nat_freq_example_3.png)
 
+# Submerged Panels
+
+The natural frequency in submerged condition can be expressed as
+
+F<sub>L</sub> = f<sub>n</sub> &Delta;
+
+where:
+
+F<sub>L</sub> = natural frequency of panel in submerged condition, Hz<br>
+f<sub>n</sub> = natural frequency in air, Hz<br>
+&Delta; = reduction factor<br>
+
+&Delta; is expressed as:<br>
+&Delta; = 1 / √(1 + ε)
+
+where:
+
+ε = (Cρ<sub>L</sub> a) / (πρ<sub>p</sub> t<sub>e</sub> √(1 + (a/l)<sup>2</sup>))
+
+where:
+- C = 1 if liquid is on one side <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 if liquid is on both sides,
+- ρ<sub>L</sub> = density of liquid (kg/m),
+- ρ<sub>p</sub> = density of panel material (kg/m),
+- t<sub>e</sub> = equivalent thickness of panel,
+- a, l = breadth and length of the panel
+
+For steel panel vibrating in water the value of ε becomes:
+
+ε = (0.04 C a) / ( t<sub>e</sub> √(1 + (a/l)<sup>2</sup>))
+
+
+
+
+
 ___________________________________________________ END _____________________________________________________________
