@@ -63,7 +63,7 @@ where:
 
 For steel panel vibrating in water the value of ε becomes:
 
-ε = (0.0415 C a) / ( t<sub>e</sub> √(1 + (a/l)<sup>2</sup>))
+ε = (0.0415 C a) / (t<sub>e</sub> √(1 + (a/l)<sup>2</sup>))
 
 
 
