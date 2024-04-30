@@ -1,10 +1,11 @@
-# Status: In Progress
-
 # Nastran Input Generator for Stiffened Panels
 
 Description:
 
 The Nastran Input Generator for Stiffened Panels is a C# application designed to generate input files for the Nastran finite element analysis (FEA) software specifically tailored for stiffened panel structures. The application provides a user-friendly interface to define the geometric and material properties of the stiffened panel and automatically generates Nastran input files that can be used for structural analysis.
+
+![Nastran stiffened Panels](/Images/Plate_nat_freq.png)
+
 
 Features:
 
@@ -24,3 +25,52 @@ Benefits:
 - Enhances productivity and efficiency in generating Nastran input files for stiffened panel structures, making it suitable for engineering and aerospace applications.
 
 Overall, the Nastran Input Generator for Stiffened Panels is a powerful C# application that simplifies the process of creating Nastran input files for stiffened panel structures, saving time and effort in the analysis and design of these structures.
+
+Example after importing the model to Nastran preprocessors
+
+![Example 1](/Images/Plate_nat_freq_example_1.png)
+
+![Example 2](/Images/Plate_nat_freq_example_2.png)
+
+![Example 3](/Images/Plate_nat_freq_example_3.png)
+
+# Submerged Panels
+
+The natural frequency in submerged condition can be expressed as
+
+F<sub>L</sub> = f<sub>n</sub> &Delta;
+
+where:
+
+F<sub>L</sub> = natural frequency of panel in submerged condition, Hz<br>
+f<sub>n</sub> = natural frequency in air, Hz<br>
+&Delta; = reduction factor<br>
+
+&Delta; is expressed as:<br>
+&Delta; = 1 / √(1 + ε)
+
+where:
+
+ε = (Cρ<sub>L</sub> a) / (πρ<sub>p</sub> t<sub>e</sub> √(1 + (a/l)<sup>2</sup>))
+
+where:
+- C = 1 if liquid is on one side <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 if liquid is on both sides,
+- ρ<sub>L</sub> = density of liquid (kg/m),
+- ρ<sub>p</sub> = density of panel material (kg/m),
+- t<sub>e</sub> = equivalent thickness of panel,
+- a, l = breadth and length of the panel
+
+For steel panel vibrating in water the value of ε becomes:
+
+ε = (0.0415 C a) / (t<sub>e</sub> √(1 + (a/l)<sup>2</sup>))
+
+
+
+<br>
+<br>
+<br>
+
+
+
+________________________________________________ END _____________________________________________________________
