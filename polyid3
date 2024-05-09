@@ -1,0 +1,13 @@
+import numpy as np
+
+# Given data
+x_data = [0.5, 0.63, 0.8, 1, 1.25, 1.6, 2, 2.5, 3.15, 4, 5, 6.3, 8, 10, 12.5]
+y_data = [0.368, 0.53, 0.7, 0.833, 0.907, 0.934, 0.932, 0.91, 0.872, 0.818, 0.75, 0.669, 0.582, 0.494, 0.411]
+
+# Fitting a polynomial of degree 3
+p_coefficients = np.polyfit(x_data, y_data, 4)
+p = np.poly1d(p_coefficients)
+
+# Printing the polynomial function
+print("Polynomial Function:")
+print(p)
