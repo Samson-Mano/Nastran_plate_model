@@ -63,6 +63,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button_create = new System.Windows.Forms.Button();
             this.button_export = new System.Windows.Forms.Button();
+            this.button_export_fem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -376,9 +377,9 @@
             // 
             // button_create
             // 
-            this.button_create.Location = new System.Drawing.Point(322, 549);
+            this.button_create.Location = new System.Drawing.Point(365, 526);
             this.button_create.Name = "button_create";
-            this.button_create.Size = new System.Drawing.Size(115, 44);
+            this.button_create.Size = new System.Drawing.Size(153, 32);
             this.button_create.TabIndex = 6;
             this.button_create.Text = "Create Mesh";
             this.button_create.UseVisualStyleBackColor = true;
@@ -386,19 +387,30 @@
             // 
             // button_export
             // 
-            this.button_export.Location = new System.Drawing.Point(452, 549);
+            this.button_export.Location = new System.Drawing.Point(365, 564);
             this.button_export.Name = "button_export";
-            this.button_export.Size = new System.Drawing.Size(113, 44);
+            this.button_export.Size = new System.Drawing.Size(153, 32);
             this.button_export.TabIndex = 7;
-            this.button_export.Text = "Export BDF";
+            this.button_export.Text = "Export Nastran BDF";
             this.button_export.UseVisualStyleBackColor = true;
             this.button_export.Click += new System.EventHandler(this.button_export_Click);
+            // 
+            // button_export_fem
+            // 
+            this.button_export_fem.Location = new System.Drawing.Point(365, 602);
+            this.button_export_fem.Name = "button_export_fem";
+            this.button_export_fem.Size = new System.Drawing.Size(148, 32);
+            this.button_export_fem.TabIndex = 8;
+            this.button_export_fem.Text = "Export Hypermesh FEM";
+            this.button_export_fem.UseVisualStyleBackColor = true;
+            this.button_export_fem.Click += new System.EventHandler(this.button_export_fem_Click);
             // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 621);
+            this.ClientSize = new System.Drawing.Size(584, 661);
+            this.Controls.Add(this.button_export_fem);
             this.Controls.Add(this.button_export);
             this.Controls.Add(this.button_create);
             this.Controls.Add(this.groupBox5);
@@ -410,7 +422,7 @@
             this.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximumSize = new System.Drawing.Size(600, 660);
+            this.MaximumSize = new System.Drawing.Size(600, 700);
             this.MinimumSize = new System.Drawing.Size(600, 660);
             this.Name = "main_form";
             this.Text = "Nastran Plate Input Creator for Modal analysis ----- Developed by Samson Mano ";
@@ -465,5 +477,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox_meshsize;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button_export_fem;
     }
 }

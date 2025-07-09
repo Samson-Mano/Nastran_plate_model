@@ -81,8 +81,8 @@ namespace Nastran_plate_model
             public string return_nastran_format()
             {
 
-               string str = string.Format("CBEAM,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15}",
-                    beam_id, 2, node_1, node_2, 0.0, 0.0,1.0,"","","", 0.0, 0.0, beam_offset_z, 0.0, 0.0, beam_offset_z) + Environment.NewLine;
+                string str = string.Format("CBEAM,{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15}",
+                     beam_id, 2, node_1, node_2, 0.0, 0.0, 1.0, "", "", "", 0.0, 0.0, beam_offset_z, 0.0, 0.0, beam_offset_z) + Environment.NewLine;
                 return str;
             }
         }
@@ -200,7 +200,7 @@ namespace Nastran_plate_model
             {
                 for (int j = 0; j < column_count - 1; j++)
                 {
-                    quads[i, j] = new Quad_store(el_id, nodes[i, j].node_id, nodes[i+1, j].node_id, nodes[i + 1, j + 1].node_id, nodes[i, j+1].node_id);
+                    quads[i, j] = new Quad_store(el_id, nodes[i, j].node_id, nodes[i + 1, j].node_id, nodes[i + 1, j + 1].node_id, nodes[i, j + 1].node_id);
                     quad_ids.Add(el_id);
                     el_id++;
                 }
@@ -434,12 +434,12 @@ namespace Nastran_plate_model
             if (type == 0)
             {
                 // Pinned
-                return "SPC1,1,123," + id +","+ Environment.NewLine;
+                return "SPC1,1,123," + id + "," + Environment.NewLine;
             }
             else if (type == 1)
             {
                 // Fixed
-                return "SPC1,1,123456," + id +","+ Environment.NewLine;
+                return "SPC1,1,123456," + id + "," + Environment.NewLine;
             }
 
             return "";
@@ -453,6 +453,24 @@ namespace Nastran_plate_model
             // Find the ceiling of the ratio value
             return (int)Math.Ceiling(ratio);
         }
+
+
+        public string get_Optistruct_mesh()
+        {
+            if (this.is_mesh_created == false)
+                return null;
+
+
+
+            return "";
+
+        }
+
+
+
+
+
+
 
     }
 }

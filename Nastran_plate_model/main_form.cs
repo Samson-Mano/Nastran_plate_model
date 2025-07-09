@@ -211,6 +211,39 @@ namespace Nastran_plate_model
 
         }
 
+        private void button_export_fem_Click(object sender, EventArgs e)
+        {
+            if (mesh_data.is_mesh_created == false)
+                return;
+
+            // global_static.Show_error_Dialog("BDF Data", mesh_data.get_Nastran_mesh());
+
+            // Your string to save as .dat file
+            string content = mesh_data.get_Nastran_mesh();
+
+            // Create a SaveFileDialog instance
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Data Files|*.dat";
+            saveFileDialog.Title = "Save as .dat File";
+            saveFileDialog.FileName = "myfile.dat";
+
+            // Show the SaveFileDialog and get the result
+            DialogResult result = saveFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                // Get the selected file path from the SaveFileDialog
+                string filePath = saveFileDialog.FileName;
+
+                // Save the string as .dat file
+                File.WriteAllText(filePath, content);
+
+                Console.WriteLine("File saved as: " + filePath);
+            }
+
+
+        }
+
 
         // _________ INPUTS
         // textBox_length
