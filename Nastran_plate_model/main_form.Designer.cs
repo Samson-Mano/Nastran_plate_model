@@ -64,6 +64,7 @@
             this.button_create = new System.Windows.Forms.Button();
             this.button_export = new System.Windows.Forms.Button();
             this.button_export_fem = new System.Windows.Forms.Button();
+            this.button_export_bdf = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -377,9 +378,9 @@
             // 
             // button_create
             // 
-            this.button_create.Location = new System.Drawing.Point(365, 526);
+            this.button_create.Location = new System.Drawing.Point(305, 565);
             this.button_create.Name = "button_create";
-            this.button_create.Size = new System.Drawing.Size(153, 32);
+            this.button_create.Size = new System.Drawing.Size(98, 32);
             this.button_create.TabIndex = 6;
             this.button_create.Text = "Create Mesh";
             this.button_create.UseVisualStyleBackColor = true;
@@ -387,29 +388,40 @@
             // 
             // button_export
             // 
-            this.button_export.Location = new System.Drawing.Point(365, 564);
+            this.button_export.Location = new System.Drawing.Point(419, 527);
             this.button_export.Name = "button_export";
             this.button_export.Size = new System.Drawing.Size(153, 32);
             this.button_export.TabIndex = 7;
-            this.button_export.Text = "Export Nastran BDF";
+            this.button_export.Text = "Export Nastran DAT";
             this.button_export.UseVisualStyleBackColor = true;
             this.button_export.Click += new System.EventHandler(this.button_export_Click);
             // 
             // button_export_fem
             // 
-            this.button_export_fem.Location = new System.Drawing.Point(365, 602);
+            this.button_export_fem.Location = new System.Drawing.Point(419, 603);
             this.button_export_fem.Name = "button_export_fem";
-            this.button_export_fem.Size = new System.Drawing.Size(148, 32);
+            this.button_export_fem.Size = new System.Drawing.Size(153, 32);
             this.button_export_fem.TabIndex = 8;
             this.button_export_fem.Text = "Export Hypermesh FEM";
             this.button_export_fem.UseVisualStyleBackColor = true;
             this.button_export_fem.Click += new System.EventHandler(this.button_export_fem_Click);
+            // 
+            // button_export_bdf
+            // 
+            this.button_export_bdf.Location = new System.Drawing.Point(419, 565);
+            this.button_export_bdf.Name = "button_export_bdf";
+            this.button_export_bdf.Size = new System.Drawing.Size(153, 32);
+            this.button_export_bdf.TabIndex = 9;
+            this.button_export_bdf.Text = "Export Nastran BDF";
+            this.button_export_bdf.UseVisualStyleBackColor = true;
+            this.button_export_bdf.Click += new System.EventHandler(this.button_export_bdf_Click);
             // 
             // main_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 661);
+            this.Controls.Add(this.button_export_bdf);
             this.Controls.Add(this.button_export_fem);
             this.Controls.Add(this.button_export);
             this.Controls.Add(this.button_create);
@@ -478,5 +490,6 @@
         private System.Windows.Forms.TextBox textBox_meshsize;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button_export_fem;
+        private System.Windows.Forms.Button button_export_bdf;
     }
 }

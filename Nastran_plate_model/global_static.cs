@@ -26,7 +26,7 @@ namespace Nastran_plate_model
                     "Density,2.70E-9&";
         }
 
-        public static string Material_ConvertToNastranFormat(string materialName)
+        public static string Material_ConvertToNastranDatFormat(string materialName)
         {
             string[] materialData = Material_data().Split('&');
             foreach (string material in materialData)
@@ -73,6 +73,86 @@ namespace Nastran_plate_model
 
             return null;
         }
+
+        
+
+        public static string Material_ConvertToNastranBdfFormat(string materialName)
+        {
+            string[] materialData = Material_data().Split('&');
+            foreach (string material in materialData)
+            {
+                string[] properties = material.Split(';');
+                string name = "";
+                string youngsModulus = "";
+                string shearModulus = "";
+                string poissonsRatio = "";
+                string density = "";
+
+                foreach (string property in properties)
+                {
+                    string[] keyValue = property.Split(',');
+                    if (keyValue.Length == 2)
+                    {
+                        string key = keyValue[0].Trim();
+                        string value = keyValue[1].Trim();
+                        switch (key)
+                        {
+                            case "Material name":
+                                name = value;
+                                break;
+                            case "Youngs modulus":
+                                youngsModulus = value;
+                                break;
+                            case "Shear modulus":
+                                shearModulus = value;
+                                break;
+                            case "Poissons ratio":
+                                poissonsRatio = value;
+                                break;
+                            case "Density":
+                                density = value;
+                                break;
+                        }
+                    }
+                }
+
+                if (name.Equals(materialName, StringComparison.OrdinalIgnoreCase))
+                {
+                    string line = string.Format("{0,-8}{1,8}{2,8}{3,8}{4,8}{5,8}{6,8}{7,8}",
+                    "MAT1", 1,
+                    FormatRealBDF(youngsModulus),
+                    FormatRealBDF(shearModulus),
+                    FormatRealBDF(poissonsRatio),
+                    FormatRealBDF(density),
+                    FormatRealBDF("0.0"),
+                    FormatRealBDF("0.0"));
+
+                    return "$ Femap with NX Nastran Material 1 : ISOTROPIC Material" + Environment.NewLine + line + Environment.NewLine;
+                }
+            }
+
+            return null;
+        }
+
+        private static string FormatRealBDF(string value)
+        {
+            if (double.TryParse(value, out double result))
+            {
+                string fixedFormat = result.ToString("0.######");
+                if (fixedFormat.Length <= 8)
+                    return fixedFormat.PadLeft(8);
+
+                string sciFormat = result.ToString("0.0####E+0");
+                return sciFormat.Length <= 8 ? sciFormat.PadLeft(8) : sciFormat.Substring(0, 8);
+            }
+            return value.PadLeft(8);
+        }
+
+
+
+
+
+
 
 
         /*
@@ -161,7 +241,7 @@ ________________________________________________________________________________
                 "DIM4,10&";
         }
 
-        public static string Stiffner_ConvertToNastranFormat(string input, ref double offset_val)
+        public static string Stiffner_ConvertToNastranDatFormat(string input, ref double offset_val)
         {
             if (input.StartsWith("L"))
             {
@@ -257,6 +337,76 @@ ________________________________________________________________________________
 
             return null; // return null if input not found in the static string
         }
+
+
+
+        public static string Stiffner_ConvertToNastranBdfFormat(string input, ref double offset_val)
+        {
+            string header = "";
+            string continuation = "";
+
+            if (input.StartsWith("L"))
+            {
+                string[] data = L_Stiffener_data().Split('&');
+
+                foreach (var item in data)
+                {
+                    if (item.Contains(input))
+                    {
+                        string[] itemData = item.Split(';');
+                        string dim1 = "", dim2 = "", dim3 = "", dim4 = "";
+
+                        foreach (var dim in itemData)
+                        {
+                            if (dim.Contains("DIM1"))
+                                dim1 = dim.Replace("DIM1,", "");
+                            else if (dim.Contains("DIM2"))
+                                dim2 = dim.Replace("DIM2,", "");
+                            else if (dim.Contains("DIM3"))
+                                dim3 = dim.Replace("DIM3,", "");
+                            else if (dim.Contains("DIM4"))
+                                dim4 = dim.Replace("DIM4,", "");
+                        }
+
+                        double.TryParse(dim2, out offset_val);
+
+                        // First line: PBEAML card
+                        header = string.Format("{0,-8}{1,8}{2,8}{3,-8}{4,-8}{5,40}+",
+         "PBEAML", 2, 1, "MSCBML0", "L", "");
+
+                        // Continuation line: dimensions
+                        continuation = string.Format("{0,-8}{1,8}{2,8}{3,8}{4,8}{5,8}",
+         "+", FormatRealBdf(dim1), FormatRealBdf(dim2), FormatRealBdf(dim3), FormatRealBdf(dim4), FormatRealBdf("0.0"));
+
+                        return "$ Femap with NX Nastran Property 2 : BEAM Property (NASTRAN L)" + Environment.NewLine +
+                        header + Environment.NewLine +
+                        continuation + Environment.NewLine;
+                    }
+                }
+            }
+
+            // Similar logic can be applied for T and F types
+            return null;
+        }
+
+        private static string FormatRealBdf(string value)
+        {
+            if (double.TryParse(value, out double result))
+            {
+                string fixedFormat = result.ToString("0.######");
+                if (fixedFormat.Length <= 8)
+                    return fixedFormat.PadLeft(8);
+
+                string sciFormat = result.ToString("0.0####E+0");
+                return sciFormat.Length <= 8 ? sciFormat.PadLeft(8) : sciFormat.Substring(0, 8);
+            }
+            return value.PadLeft(8);
+        }
+
+
+
+
+
 
         /*
 ___________________________________________________________________________________
@@ -434,7 +584,7 @@ ________________________________________________________________________________
             return materialNames;
         }
 
-        public static string Thickness_ConvertToNastranFormat(double thickness, double non_structural_mass)
+        public static string Thickness_ConvertToNastranDatFormat(double thickness, double non_structural_mass)
         {
             // Format the values into a Nastran format string
             string thickness_nastranFormat = string.Format("PSHELL,1,1,{0,-7:F1},1,1.0,1,0.833333,{1,12:0.0E+0}",
@@ -442,6 +592,36 @@ ________________________________________________________________________________
 
             return thickness_nastranFormat;
         }
+
+
+        public static string Thickness_ConvertToNastranBDFFormat(double thickness, double non_structural_mass)
+        {
+            string line = string.Format("{0,-8}{1,8}{2,8}{3,8}{4,8}{5,8}{6,8}{7,8}{8,8}",
+            "PSHELL", 1, 1,
+            thickness.ToString("0.0"), // T
+                   1,                         // MID2
+                   1.0,                       // 12I/T^3
+                   1,                         // MID3
+                   0.833333,                  // TS/T
+                   FormatRealForBDFNastran(non_structural_mass)); // NSM
+
+            return "$ Femap with NX Nastran Property 1 : PLATE Property" + Environment.NewLine + line + Environment.NewLine;
+        }
+
+        private static string FormatRealForBDFNastran(double value)
+        {
+            // Format to fit within 8 characters, using scientific notation if needed
+            string fixedFormat = value.ToString("0.######");
+            if (fixedFormat.Length <= 8)
+                return fixedFormat.PadLeft(8);
+
+            string sciFormat = value.ToString("0.0####E+0");
+            return sciFormat.Length <= 8 ? sciFormat.PadLeft(8) : sciFormat.Substring(0, 8);
+        }
+
+
+
+
 
 
         public static void Show_error_Dialog(string title, string text)

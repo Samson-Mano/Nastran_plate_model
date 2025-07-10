@@ -85,16 +85,19 @@ namespace Nastran_plate_model
             thickness = Convert.ToDouble(textBox_thickness.Text);
             non_structural_mass = Convert.ToDouble(textBox_nmass.Text);
             non_structural_mass = non_structural_mass / (double)(1000000 * 1000);
-            string thickness_output = global_static.Thickness_ConvertToNastranFormat(thickness, non_structural_mass);
+            string thickness_dat_output = global_static.Thickness_ConvertToNastranDatFormat(thickness, non_structural_mass);
+            string thickness_bdf_output = global_static.Thickness_ConvertToNastranBDFFormat(thickness, non_structural_mass);
             // global_static.Show_error_Dialog("Thickness", thickness_output);
 
             // Stiffener properties
             double beam_offset = 0.0d;
-            string stiffener_output = global_static.Stiffner_ConvertToNastranFormat(comboBox_stiffener.SelectedItem.ToString(), ref beam_offset);
-            // global_static.Show_error_Dialog("Stiffener", stiffener_output);
+            string stiffener_dat_output = global_static.Stiffner_ConvertToNastranDatFormat(comboBox_stiffener.SelectedItem.ToString(), ref beam_offset);
+            string stiffener_bdf_output = global_static.Stiffner_ConvertToNastranBdfFormat(comboBox_stiffener.SelectedItem.ToString(), ref beam_offset); ;
+             // global_static.Show_error_Dialog("Stiffener", stiffener_output);
 
-            // Material properties
-            string material_output = global_static.Material_ConvertToNastranFormat(comboBox_material.SelectedItem.ToString());
+             // Material properties
+             string material_dat_output = global_static.Material_ConvertToNastranDatFormat(comboBox_material.SelectedItem.ToString());
+            string material_bdf_output = global_static.Material_ConvertToNastranBdfFormat(comboBox_material.SelectedItem.ToString());
             // global_static.Show_error_Dialog("Material", material_output);
 
             // Boundary conditions
@@ -120,8 +123,9 @@ namespace Nastran_plate_model
                 beam_offset = beam_offset * 0.5d;
             }
 
-                mesh_data.create_mesh(length_a, breadth_b, stiff_spacing, mesh_size,beam_offset,bc_values);
-            mesh_data.set_other_input_str(thickness_output,stiffener_output,material_output);
+            mesh_data.create_mesh(length_a, breadth_b, stiff_spacing, mesh_size,beam_offset,bc_values);
+            mesh_data.set_other_input_str(thickness_dat_output,stiffener_dat_output,material_dat_output,
+                thickness_bdf_output, stiffener_bdf_output, material_bdf_output);
 
             // MessageBox.Show(comboBox_side1_bc.SelectedIndex.ToString());
             MessageBox.Show("Mesh Creation Complete !","Nastran Mesh",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -186,7 +190,7 @@ namespace Nastran_plate_model
             // global_static.Show_error_Dialog("BDF Data", mesh_data.get_Nastran_mesh());
 
             // Your string to save as .dat file
-            string content = mesh_data.get_Nastran_mesh();
+            string content = mesh_data.get_Nastran_dat_mesh();
 
             // Create a SaveFileDialog instance
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -211,6 +215,43 @@ namespace Nastran_plate_model
 
         }
 
+        private void button_export_bdf_Click(object sender, EventArgs e)
+        {
+            if (mesh_data.is_mesh_created == false)
+                return;
+
+            // global_static.Show_error_Dialog("BDF Data", mesh_data.get_Nastran_mesh());
+
+            // Your string to save as .dat file
+            string content = mesh_data.get_Nastran_bdf_mesh();
+
+            // Create a SaveFileDialog instance
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Bdf Files|*.bdf";
+            saveFileDialog.Title = "Save as .bdf File";
+            saveFileDialog.FileName = "myfile.bdf";
+
+            // Show the SaveFileDialog and get the result
+            DialogResult result = saveFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                // Get the selected file path from the SaveFileDialog
+                string filePath = saveFileDialog.FileName;
+
+                // Save the string as .dat file
+                File.WriteAllText(filePath, content);
+
+                Console.WriteLine("File saved as: " + filePath);
+            }
+
+
+
+
+        }
+
+
+
         private void button_export_fem_Click(object sender, EventArgs e)
         {
             if (mesh_data.is_mesh_created == false)
@@ -219,7 +260,7 @@ namespace Nastran_plate_model
             // global_static.Show_error_Dialog("BDF Data", mesh_data.get_Nastran_mesh());
 
             // Your string to save as .dat file
-            string content = mesh_data.get_Nastran_mesh();
+            string content = ""; //  mesh_data.get_Nastran_mesh();
 
             // Create a SaveFileDialog instance
             SaveFileDialog saveFileDialog = new SaveFileDialog();
